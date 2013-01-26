@@ -2,10 +2,10 @@
   "version": "1.0",
   "name": "Mozigazilla",
   "icons": {
-    "120": "/mozigazilla/img/icon-120.png",
-    "128": "/mozigazilla/img/icon-120.png"
+    "30": "/mozigazilla/img/icon-30.jpg",
+    "60": "/mozigazilla/img/icon-60.jpg"
   },
-  "launch_path": "index.html",
+  "launch_path": "/mozigazilla/index.html",
   "description": "Para cuando estás perdido en Rosario, Mozigazilla es tu amigo.",
   "developer": {
     "name": ["Peregrino", "Enzomatrix"],
