@@ -76,8 +76,8 @@
             Desarrollada con mucho aprecio y unos litros de mate, durante el FirefoxOS
             AppDay Buenos Aires.
           </li>
-          <li id="install-button">
-            <strong><a href="#install" class="button" data-icon="mobile" data-router="section">Instalar</a></strong>
+          <li id="install-button" class="hidden">
+            <strong><a class="button" data-icon="mobile">Instalar</a></strong>
           </li>
         </ul>
       </article>
@@ -88,26 +88,16 @@
           <a class="right" data-image="img/icon-30.png"></a>
         </nav>
       </header>
-      <article id="msg-install" class="active list indent">
+      <article class="active list indent">
         <ul>
+          <li id="msg-error" class="cancel">
+            <span class="text">Error.</span>
+          </li>
           <li>
             <a href="#install" class="button accept" data-icon="mobile" data-router="section"> Instalar</a>
           </li>
         </ul>
       </article>
-      <article id="msg-error" class="list indent">
-        <ul>
-          <li class="cancel">
-            <span class="text">Error.</span>
-          </li>
-        </ul>
-      </article>
-      <footer>
-        <nav>
-          <a href="#msg-install" data-router="article" class="active" data-icon="mobile" data-title="Instalar"></a>
-          <a href="#msg-error" data-router="article" data-icon="close" data-title="Error al Instalar"></a>
-        </nav>
-      </footer>
     </section>
 
     <!-- Le javascript

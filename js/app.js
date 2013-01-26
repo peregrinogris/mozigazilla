@@ -5,19 +5,22 @@ $(document).ready(function(){
   request.onsuccess = function() {
     if (this.result[0]) {
       // we're installed
-      $('#about #install-button').hide();
       Lungo.Router.section("main");
     } else {
       // not installed
-      $('#install .button.accept').click(function() {
+      $('#about #install-button').removeClass('hidden');
+      $("#install #msg-error").addClass('hidden');
+      $('#about #install-button .button, #install .button.accept').click(function() {
           var installation = navigator.mozApps.install(manifest_url);
           installation.onsuccess = function() {
             Lungo.Router.section("main");
+            $('#about #install-button').addClass('hidden');
             // Launch the App so the AppCache downloads it
             installation.result.launch();
           };
           installation.onerror = function() {
             $('#install #msg-error .text').text("Error: " + this.error.name);
+            $("#install #msg-error").removeClass('hidden');
             Lungo.Router.article("install", "msg-error");
           };
         }
