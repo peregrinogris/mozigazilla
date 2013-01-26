@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "name": "Mozigazilla",
+  "icons": {
+    "120": "/mozigazilla/img/icon-120.png",
+    "128": "/mozigazilla/img/icon-120.png"
+  },
+  "launch_path": "index.html",
+  "description": "Para cuando estás perdido en Rosario, Mozigazilla es tu amigo.",
+  "developer": {
+    "name": ["Peregrino", "Enzomatrix"],
+    "url": "http://peregrinogris.com.ar"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en"
+}
