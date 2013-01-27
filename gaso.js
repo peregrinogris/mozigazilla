@@ -149,8 +149,8 @@ Gaso.prototype.gasear = function(palabra) {
 
   */
 
-  // Si son 2 letras, pasar
-  if (palabra.length < 3)
+  // Si son 3 o menos letras, es un monosilabo
+  if (palabra.length < 4)
     return palabra;
 
 
@@ -169,7 +169,6 @@ Gaso.prototype.gasear = function(palabra) {
   palabra=this.umuda(palabra);
 
   // Que hacemos? Vemos en qué termina
-
   var list = [];
   if ('nsaeiou'.indexOf(palabra[palabra.length-1])){
     // Palabra grave, acento en la penúltima vocal
@@ -178,7 +177,11 @@ Gaso.prototype.gasear = function(palabra) {
       list.push([x, idx]);
       return x;
     });
-    console.log(palabra, list)
+
+    // Si no hay vocales suficientes, es una palabra rara, o nombre
+    if (list.length < 2)
+      return this.umuda(palabra);
+
     list.pop();
     pos = (list.pop())[1];
   } else {
@@ -188,6 +191,11 @@ Gaso.prototype.gasear = function(palabra) {
       list.push([x, idx]);
       return x;
     });
+
+    // Si no hay vocales suficientes, es una palabra rara, o nombre
+    if (list.length < 1)
+      return this.umuda(palabra);
+
     pos = (list.pop())[1];
   }
 
@@ -213,6 +221,13 @@ Gaso.prototype.procesar = function(texto) {
   return textogasino;
 };
 
+try {
+  // Node.js
+  module.exports = Gaso;
+} catch (e) {
+  // Ignore, we are in a browser.
+}
+
 // Testing
 // var gasino = new Gaso();
 // console.log("umuda de queso: ", gasino.umuda("queso"));
@@ -221,5 +236,4 @@ Gaso.prototype.procesar = function(texto) {
 // console.log("rosarino ==", gasino.gasear('rosarino'));
 // console.log("mocasín ==", gasino.gasear('mocasín'));
 // console.log("queso ==", gasino.gasear('queso'));
-// console.log(gasino.procesar("Esto está en rosarino, mozilla"));
-// console.log(gasino.procesar("Esto está en rosarino, no es cierto?"));
+// console.log(gasino.procesar("Esto está en rosarino."));
