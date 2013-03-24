@@ -1,21 +1,6 @@
-body {
-  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+#main .form, #main fieldset {
+  height: 99%;
 }
-
-.centered {
-  text-align: center;
-  margin: 0 auto;
-}
-
-.install-message {
-  margin: 40px auto;
-}
-
-.install-message div {
-  line-height: 48px;
-}
-
-.text-holder textarea {
-  width: 100%;
-  min-height: 100px;
+#main textarea {
+  height: 95%;
 }

@@ -12,25 +12,18 @@
     <link href="libs/lungo/lungo.icon.css" rel="stylesheet">
     <link href="libs/lungo/theme.lungo.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <style type="text/css">
-      #main .form, #main fieldset {
-        height: 99%;
-      }
-      #main textarea {
-        height: 95%;
-      }
-    </style>
   </head>
   <body class="app">
     <section id="main" data-transition="">
       <header data-title="Mozigazilla Traductor" class="extended">
         <nav>
           <a href="#about" data-router="section" data-icon="info"></a>
+          <a class="right" data-image="img/icon-30.png"></a>
         </nav>
       </header>
       <nav class="groupbar">
         <a href="#es-ar" data-router="article" class="active"> ES-ar </a>
-        <a href="#es-rg" data-router="article"> ES-rg </a>
+        <a href="#es-rg" data-router="article" data-action="gaso"> ES-rg </a>
       </nav>
       <article id="es-ar" class="active">
         <div class="form">
@@ -50,13 +43,17 @@
       </article>
     </section>
     <section id="about">
-      <header data-back="home blue" data-title="About"></header>
-      <article class="active list">
+      <header data-back="home blue" data-title="About">
+        <nav>
+          <a class="right" data-image="img/icon-30.png"></a>
+        </nav>
+      </header>
+      <article class="active list scroll">
         <ul>
           <li class="dark">
             <strong>
               Para cuando estás perdido en Rosario, Mozigazilla es tu amigo.
-            </strong><br>
+            </strong>
             <small>Un traductor de Español a Rosarigasino.</small>
           </li>
           <li>
@@ -79,22 +76,26 @@
             Desarrollada con mucho aprecio y unos litros de mate, durante el FirefoxOS
             AppDay Buenos Aires.
           </li>
-          <li>
+          <li id="install-button">
             <strong><a href="#install" class="button" data-icon="mobile" data-router="section">Instalar</a></strong>
           </li>
         </ul>
       </article>
     </section>
     <section id="install">
-      <header data-back="left" data-title="Instalar"></header>
-      <article id="install" class="active list indent">
+      <header data-back="left" data-title="Instalar">
+        <nav>
+          <a class="right" data-image="img/icon-30.png"></a>
+        </nav>
+      </header>
+      <article id="msg-install" class="active list indent">
         <ul>
           <li>
             <a href="#install" class="button accept" data-icon="mobile" data-router="section"> Instalar</a>
           </li>
         </ul>
       </article>
-      <article id="error" class="list indent">
+      <article id="msg-error" class="list indent">
         <ul>
           <li class="cancel">
             <span class="text">Error.</span>
@@ -103,8 +104,8 @@
       </article>
       <footer>
         <nav>
-          <a href="#install" data-router="article" class="active" data-icon="mobile" data-title="Instalar"></a>
-          <a href="#error" data-router="article" data-icon="close" data-title="Error al Instalar"></a>
+          <a href="#msg-install" data-router="article" class="active" data-icon="mobile" data-title="Instalar"></a>
+          <a href="#msg-error" data-router="article" data-icon="close" data-title="Error al Instalar"></a>
         </nav>
       </footer>
     </section>
@@ -114,9 +115,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="libs/jquery.min.js"></script>
     <script src="libs/gaso.js"></script>
-    <script src="js/app.js"></script>
-    <script src="libs/quo/quo.js"></script>
+    <script src="libs/quo/quo.debug.js"></script>
     <script src="libs/lungo/lungo.js"></script>
+    <script src="js/app.js"></script>
 
     <script>
         Lungo.init({

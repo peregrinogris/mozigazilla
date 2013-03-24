@@ -229,7 +229,8 @@ window.Quo = Quo;
     environment = {};
     environment.browser = _detectBrowser(user_agent);
     environment.os = _detectOS(user_agent);
-    environment.isMobile = !!environment.os;
+    // TODO: Remove this. Monkey-Patch to make it work with the FirefoxOS Simulator
+    environment.isMobile = false; /* = !!environment.os;*/
     environment.screen = _detectScreen();
     return environment;
   };

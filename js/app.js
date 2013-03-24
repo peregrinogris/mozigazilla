@@ -1,43 +1,41 @@
 var manifest_url = "http://local.projects/mozigazilla/manifest.webapp";
 $(document).ready(function(){
 
-  $('.alert').bind('closed', function() {
-    window.location.reload();
-  });
-
-  var request = navigator.mozApps.getSelf();
+  var request = navigator.mozApps.getInstalled();
   request.onsuccess = function() {
-    if (this.result) {
+    if (this.result[0]) {
       // we're installed
-      $('.install-message').hide();
-      $('.text-holder').removeClass('hidden');
+      $('#about #install-button').hide();
+      Lungo.Router.section("main");
     } else {
       // not installed
-      $('.install-message .install .btn').click(function() {
+      $('#install .button.accept').click(function() {
           var installation = navigator.mozApps.install(manifest_url);
           installation.onsuccess = function() {
-            window.location.reload();
+            Lungo.Router.section("main");
           };
           installation.onerror = function() {
-            $('.alert .text').text("Error: " + this.error.name);
-            $('.alert').show();
+            $('#install #msg-error .text').text("Error: " + this.error.name);
+            Lungo.Router.article("install", "msg-error");
           };
-      });
-
-      $('.install-message .install').removeClass('hidden');
+        }
+      );
+      Lungo.Router.section("install");
     }
   };
   request.onerror = function() {
-    $('.alert .text').text(
+    $('#install #msg-error .text').text(
       'Error checking installation status: ' + this.error.name
     );
+    Lungo.Router.article("install", "msg-error");
   };
 
   var gasino = new Gaso();
-  $('.text-holder textarea').change(function clickRosarigasino (e) {
+  $('[data-action=gaso]').click(function clickRosarigasino (e) {
     e.preventDefault();
-    $('.text-holder div.well').html(
-      gasino.procesar($('.text-holder textarea').val())
-    );
+    var text = $('#es-ar textarea').val();
+    if (text) {
+      $('#es-rg textarea').val(gasino.procesar(text));
+    }
   });
 });
