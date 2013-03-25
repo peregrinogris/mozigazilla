@@ -5,14 +5,11 @@
     "30": "/img/icon-30.png",
     "60": "/img/icon-60.png"
   },
+  "appcache_path": "/mozigazilla.appcache",
   "launch_path": "index.html",
   "description": "Para cuando estás perdido en Rosario, Mozigazilla es tu amigo.",
   "developer": {
     "name": "Peregrino",
     "url": "http://peregrinogris.com.ar"
-  },
-  "installs_allowed_from": [
-    "*"
-  ],
-  "default_locale": "en"
+  }
 }
