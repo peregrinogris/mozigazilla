@@ -13,6 +13,8 @@ $(document).ready(function(){
           var installation = navigator.mozApps.install(manifest_url);
           installation.onsuccess = function() {
             Lungo.Router.section("main");
+            // Launch the App so the AppCache downloads it
+            installation.result.launch();
           };
           installation.onerror = function() {
             $('#install #msg-error .text').text("Error: " + this.error.name);
