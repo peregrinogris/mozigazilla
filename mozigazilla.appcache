@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# v1 - 2013-03-24
+# v2 - 2013-03-24
 libs/gaso.js
 libs/jquery.min.js
 libs/quo/quo.debug.js
@@ -9,6 +9,8 @@ libs/lungo/lungo.js
 libs/lungo/theme.lungo.css
 img/icon-30.png
 img/icon-60.png
+img/user-peregrinogris.jpg
+img/user-enzomatrix.jpg
 css/main.css
 js/app.js
 index.html
